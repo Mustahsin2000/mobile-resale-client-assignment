@@ -1,10 +1,24 @@
-import React from 'react';
+
+import { useEffect, useState } from 'react';
+
+import Category from './Category';
 
 const Categories = () => {
+   const [categories,setCategories] =useState([]);
+   useEffect(()=>{
+    fetch('http://localhost:5000/categories')
+    .then(res=>res.json())
+    .then(data=>setCategories(data))
+   },[])
     return (
-        <div>
-            
+       <section>
+        {/* <p className='font-bold text-2xl text-primary mt-11'>{categories.length}</p> */}
+        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-11'>
+        {
+            categories.map(category=><Category key={category._id} category={category}></Category>)
+        }
         </div>
+       </section>
     );
 };
 

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo.jpg'
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
+    const { user,logOut } = useContext(AuthContext);
+
+    const handlelogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         // <div className="navbar bg-base-100">
         //     <div className="navbar-start">
@@ -70,16 +78,16 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0 rounded font-semibold">
                     <li className='hover:bg-blue-300 rounded hover:text-white'><Link to='/'>Home</Link></li>
                     <li className='hover:bg-blue-300 rounded hover:text-white'><Link to='/appoinment'>AdverTiseItems</Link></li>
-                    <li className='hover:bg-blue-300 rounded hover:text-white'><Link to='/about'>Blog</Link></li>
+                    {/* <li className='hover:bg-blue-300 rounded hover:text-white'><Link to='/about'>Blog</Link></li> */}
 
-                    {/* {user?.uid ?
+                    {user?.uid ?
                         <>
                             <li className='hover:bg-cyan-300 rounded hover:text-white'><Link to='/dashboard'>Dashboard</Link></li>
                             <li className='hover:bg-cyan-300 rounded hover:text-white'><button onClick={handlelogout}>sign out</button></li>
                         </>
                         :
                         <li className='hover:bg-cyan-300 rounded hover:text-white'><Link to='/login'>Login</Link></li>}
-                    <li className='hover:bg-cyan-300 rounded hover:text-white'><Link to='/signup'>Signup</Link></li> */}
+                    <li className='hover:bg-cyan-300 rounded hover:text-white'><Link to='/signup'>Signup</Link></li>
 
                 </ul>
                

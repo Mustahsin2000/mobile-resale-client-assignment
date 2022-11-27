@@ -1,0 +1,20 @@
+[
+    {
+      "img": "https://www.freepnglogos.com/uploads/original-samsung-logo-10.png",
+      "price": 28,
+      "title": "Samsung",
+      "description": "Samsung, South Korean company that is one of the world's largest producers of electronic devices"
+    },
+    {
+      "img": "https://www.nicepng.com/png/detail/502-5024957_logo-apple-clipart-apple-logo-clip-art-iphone.png",
+      "price": 38,
+      "title": "Apple",
+      "description": "235 Bushwick Place, Charco, Louisiana, 9200"
+    },
+    {
+      "img": "https://cdn.wallpapersafari.com/43/17/tBnPDe.jpg",
+      "price": 38,
+      "title": "oneplus",
+      "description": "382 Argyle Road, Babb, Texas, 2866"
+    }
+  ]
