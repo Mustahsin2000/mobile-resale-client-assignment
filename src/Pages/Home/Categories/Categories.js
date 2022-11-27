@@ -1,15 +1,21 @@
 
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
 
 import Category from './Category';
 
 const Categories = () => {
-   const [categories,setCategories] =useState([]);
-   useEffect(()=>{
-    fetch('http://localhost:5000/categories')
+//    const [categories,setCategories] =useState([]);
+   const {data:categories=[]} = useQuery({
+    queryKey:['categories'],
+    queryFn:()=>fetch('http://localhost:5000/categories')
     .then(res=>res.json())
-    .then(data=>setCategories(data))
-   },[])
+   });
+//    useEffect(()=>{
+//     fetch('http://localhost:5000/categories')
+//     .then(res=>res.json())
+//     .then(data=>setCategories(data))
+//    },[])
     return (
        <section>
         {/* <p className='font-bold text-2xl text-primary mt-11'>{categories.length}</p> */}

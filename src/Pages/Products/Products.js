@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from './BookingModal/BookingModal';
 import Product from './Product';
 
 const Products = () => {
@@ -13,13 +14,27 @@ const Products = () => {
 //    })
 
      const products = useLoaderData();
-     console.log(products);
+     const [mobile,setMobile] = useState(null);
+    //  console.log(products);
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-11'>
+        <div >
          
-            {
-                products.map(product=><Product key={product._id} product={product}></Product>)
+           <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-11'>
+           {
+                products.map(product=><Product key={product._id} product={product}
+                setMobile={setMobile}
+                ></Product>)
             }
+           </div>
+
+           <div>
+            { 
+               mobile &&
+                <BookingModal
+            mobile={mobile}
+            setMobile={setMobile}
+            ></BookingModal>}
+           </div>
         </div>
     );
 };

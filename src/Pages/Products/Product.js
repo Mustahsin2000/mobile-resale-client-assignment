@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Product = ({ product }) => {
+const Product = ({ product ,setMobile}) => {
     const { img, name, Location, Actual_price, Resale_Price,Years_of_use,time_of_the_product_post,sellers_name } = product;
     return (
         <div className="card h-full  shadow-xl">
@@ -18,7 +18,9 @@ const Product = ({ product }) => {
                 <p>Location: {Location}</p>
                 </div>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Book Now</button>
+                    <label htmlFor="booking-modal" 
+                    onClick={()=>setMobile(product)}
+                    className="btn btn-primary">Book Now</label>
                 </div>
             </div>
         </div>

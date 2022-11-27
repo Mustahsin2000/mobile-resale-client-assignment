@@ -16,7 +16,7 @@ const Signup = () => {
     // const [createdUserEmail,setcreatedUserEmail] = useState('');
     // const [token] = useToken(createdUserEmail);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // if(token){
     //     navigate('/');
@@ -36,7 +36,7 @@ const Signup = () => {
         updateUser(userInfo)
         .then(()=>{
             // saveUser(data.name,data.email );
-
+            navigate('/');
          })
         .catch(err=>console.log(err))
     })
