@@ -35,8 +35,8 @@ const Signup = () => {
         }
         updateUser(userInfo)
         .then(()=>{
-            // saveUser(data.name,data.email );
-            navigate('/');
+            saveUser(data.name,data.email );
+            
          })
         .catch(err=>console.log(err))
     })
@@ -48,21 +48,23 @@ const Signup = () => {
     }
 
 
-    // const saveUser = (name,email) =>{
-    //     const user = {name,email};
-    //     fetch('https://doctors-portal-server-umber.vercel.app/users',{
-    //         method:'POST',
-    //         headers:{
-    //             'content-type' : 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         setcreatedUserEmail(email);
+    const saveUser = (name,email) =>{
+        const user = {name,email};
+        fetch('http://localhost:5000/users',{
+            method:'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            // setcreatedUserEmail(email);
+            console.log(data)
+            navigate('/');
             
-    //     })
-    // }
+        })
+    }
     return (
         <div className='h-[800px]  flex justify-center items-center'>
         <div className='w-96 p-7'>
