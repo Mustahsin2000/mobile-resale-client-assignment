@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import Loading from '../../Shared/Loading/Loading';
 
@@ -65,7 +66,7 @@ const MyProducts = () => {
                             <th>Location</th>
                             <th>Delete</th>
                             <th>Payment</th>
-                            <th></th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -98,6 +99,17 @@ const MyProducts = () => {
                                 </th>
                                 <th>
                                     <label  onClick={()=>setDeletingproduct(product)}   htmlFor="confirmation-modal" className="btn btn-outline  btn-primary">Delete</label>
+
+                                </th>
+                                <th>
+                                    {
+                                        product.price && !product.paid && 
+                                        <Link to={`/dashboard/payment/${product._id}`}><button className='btn btn-primary btn-outline'>Pay</button></Link>
+                                    }
+                                    {
+                                        product.price && product.paid &&
+                                        <span className='text-primary'>Sold</span>
+                                    }
 
                                 </th>
                             </tr>)
