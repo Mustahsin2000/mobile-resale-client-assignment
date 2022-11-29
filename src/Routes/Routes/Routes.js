@@ -5,6 +5,7 @@ import AddAProduct from "../../Pages/Dashboard/AddAProduct/AddAProduct";
 import AllByers from "../../Pages/Dashboard/AllByers/AllByers";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Categories from "../../Pages/Home/Categories/Categories";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -53,7 +54,13 @@ const router = createBrowserRouter([
         },
         {
             path:'/dashboard/addproduct',
-            element:<AddAProduct></AddAProduct>
+            element:<AddAProduct></AddAProduct>//sellerroute khule or moddhe dite hobe
+    
+        },
+        {
+            path:'/dashboard/myproducts',
+            element:<MyProducts></MyProducts> //sellerroute er moddhe rakhte hobe
+            
         }
       ]
     }

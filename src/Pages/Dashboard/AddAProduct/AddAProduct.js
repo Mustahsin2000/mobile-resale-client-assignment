@@ -1,11 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddAProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const imageHost = process.env.REACT_APP_imgbb_key;
 
+     const navigate = useNavigate();
     // console.log(imageHost);
     const handleaddproduct = data => {
       const image = data.image[0];
@@ -19,7 +22,30 @@ const AddAProduct = () => {
       .then(res=>res.json())
       .then(imgData=>{
         if(imgData.success){
-            console.log(imgData.data.url)
+            console.log(imgData.data.url);
+            const product = {
+                name:data.name,
+                price:data.price,
+                condition:data.condition,
+                Location:data.Location,
+                image:imgData.data.url
+            }
+
+            fetch('http://localhost:5000/addproducts',{
+                method:'POST',
+                headers:{
+                    'content-type': 'application/json',
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body:JSON.stringify(product)
+            })
+            .then(res=>res.json())
+            .then(result=>{
+                console.log(result);
+                toast.success(`${data.name} added successfully`)
+                navigate('/dashboard/myproducts');
+            })
+
         }
       })
     }

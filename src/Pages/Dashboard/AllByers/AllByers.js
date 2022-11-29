@@ -26,6 +26,22 @@ const AllByers = () => {
             }
         })
     }
+
+    // const handleSeller = id =>{
+    //     fetch(`http://localhost:5000/users/seller/${id}`,{
+    //         method:'PUT',
+    //         headers:{
+    //             authorization:`bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         if(data.modifiedCount > 0){
+    //             toast.success('Make seller this byer successfully')
+    //             refetch();
+    //         }
+    //     })
+    // }
     return (
         <div>
             <div>
@@ -40,7 +56,7 @@ const AllByers = () => {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Admin</th>
-                                <th>Delete</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -51,6 +67,7 @@ const AllByers = () => {
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user?.role !== 'admin' && <button onClick={()=>handleAdmin(user._id)}  className='btn btn-xs btn-primary text-white'>Make Admin</button>}</td>
+                                    {/* <td>{user?.role !== 'seller' && <button onClick={()=>handleSeller(user._id)}  className='btn btn-xs btn-primary text-white'>Make Seller</button>}</td> */}
                                     <td><button className='btn btn-xs btn-secondary text-white'>Delete</button></td>
                                 </tr>)
                             }

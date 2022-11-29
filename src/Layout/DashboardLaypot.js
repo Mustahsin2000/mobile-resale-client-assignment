@@ -20,7 +20,7 @@ const DashboardLaypot = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashDrawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                    <ul className="menu p-4 w-80 text-base-content">
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to='/dashboard'>My Orders</Link></li>
                         
@@ -28,6 +28,8 @@ const DashboardLaypot = () => {
                             isAdmin && <>
                             <li><Link to='/dashboard/buyers'>All Byers</Link></li>
                             <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+                            <li><Link to='/dashboard/myproducts'>My Products</Link></li>
+                            
                             </>
                         }
                     </ul>
