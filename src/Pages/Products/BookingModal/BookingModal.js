@@ -42,6 +42,9 @@ const BookingModal = ({mobile,setMobile}) => {
                 setMobile(null);
                 toast.success('booking confirmed successfully');
             }
+            else{
+                toast.error(data.message);
+            }
            
         })
        

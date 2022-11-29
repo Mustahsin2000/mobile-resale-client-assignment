@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../Hooks/UseToken';
 
 
 const Signup = () => {
@@ -13,10 +14,16 @@ const Signup = () => {
 
     const [signupError,setsignuperror] = useState('');
 
+    const [createdUserEmail,setcreatedUserEmail] = useState(''); 
+    const [token] = useToken(createdUserEmail);
     // const [createdUserEmail,setcreatedUserEmail] = useState('');
     // const [token] = useToken(createdUserEmail);
 
     const navigate = useNavigate();
+
+    if(token){
+        navigate('/');
+    }
 
     // if(token){
     //     navigate('/');
@@ -60,11 +67,15 @@ const Signup = () => {
         .then(res=>res.json())
         .then(data=>{
             // setcreatedUserEmail(email);
-            console.log(data)
-            navigate('/');
+            // console.log(data)
+            // getusertoken(email);
+            setcreatedUserEmail(email);
+            
             
         })
     }
+
+ 
     return (
         <div className='h-[800px]  flex justify-center items-center'>
         <div className='w-96 p-7'>

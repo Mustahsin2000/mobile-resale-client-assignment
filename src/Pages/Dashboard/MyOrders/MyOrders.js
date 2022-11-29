@@ -9,7 +9,11 @@ const MyOrders = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url);
+            const res = await fetch(url,{
+                headers:{
+                    authorization:`bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
@@ -43,7 +47,7 @@ const MyOrders = () => {
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src={booking.img} />
+                                                <img src={booking.img} alt="" />
                                             </div>
                                         </div>
                                         {/* <div>
