@@ -110,6 +110,10 @@ const MyProducts = () => {
                                         product.price && product.paid &&
                                         <span className='text-primary'>Sold</span>
                                     }
+                                    {
+                                        product.price && !product.paid &&
+                                        <button><span className='text-primary '>unsold</span></button>
+                                    }
 
                                 </th>
                             </tr>)
