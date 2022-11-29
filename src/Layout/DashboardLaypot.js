@@ -27,6 +27,7 @@ const DashboardLaypot = () => {
                         {
                             isAdmin && <>
                             <li><Link to='/dashboard/buyers'>All Byers</Link></li>
+                            <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
                             </>
                         }
                     </ul>

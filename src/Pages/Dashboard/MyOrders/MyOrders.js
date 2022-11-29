@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
 
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const { data: bookings = [] } = useQuery({
+    const { data : bookings = []} = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url,{
@@ -15,10 +16,18 @@ const MyOrders = () => {
                 }
             });
             const data = await res.json();
+           
             return data;
         }
+        
     })
+    // if(isLoading){
+    //     return <Loading></Loading>
+    // }
 
+
+   
+    
     return (
         <div>
             <h3 className='text-2xl font-bold text-center text-danger'>My Orders</h3>
@@ -38,9 +47,13 @@ const MyOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* <!-- row 1 --> */}
-                        {
-                            bookings.map((booking, i) => <tr key={booking._id}>
+                        
+                       
+                       {
+                           
+                                (bookings?.length > 0) &&
+                            
+                            bookings?.map((booking, i) => <tr key={booking._id}>
                                 <th>{i + 1}</th>
 
                                 <td>
@@ -69,7 +82,9 @@ const MyOrders = () => {
                                     <button className="btn btn-ghost btn-xs">details</button>
                                 </th>
                             </tr>)
+                        
                         }
+                       
 
                     </tbody>
 
