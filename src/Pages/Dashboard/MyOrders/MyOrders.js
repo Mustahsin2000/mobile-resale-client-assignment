@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
@@ -21,12 +23,7 @@ const MyOrders = () => {
         }
         
     })
-    // if(isLoading){
-    //     return <Loading></Loading>
-    // }
-
-
-   
+  
     
     return (
         <div>
@@ -73,7 +70,7 @@ const MyOrders = () => {
                                     <span className="badge badge-ghost ">{booking.email}</span>
                                 </td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">{booking.Location}</button>
+                                    <button  className="btn btn-ghost btn-xs">{booking.Location}</button>
                                 </th>
                             </tr>)
                         
@@ -84,6 +81,7 @@ const MyOrders = () => {
 
                 </table>
             </div>
+       
         </div>
     );
 };
