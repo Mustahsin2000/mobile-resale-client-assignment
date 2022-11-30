@@ -30,7 +30,7 @@ const MyOrders = () => {
     
     return (
         <div>
-            <h3 className='text-2xl font-bold text-center text-danger'>My Orders</h3>
+            <h3 className='text-2xl font-bold text-center text-danger mb-6'>My Orders</h3>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -40,15 +40,13 @@ const MyOrders = () => {
                             <th>Index</th>
                             <th>Product</th>
                             <th>Product-Info</th>
-                            <th>User</th>
-                            <th>Payment</th>
+                            <th>Seller</th>
+                            <th>Location</th>
 
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        
-                       
+                    <tbody>        
                        {
                            
                                 (bookings?.length > 0) &&
@@ -63,10 +61,6 @@ const MyOrders = () => {
                                                 <img src={booking.img} alt="" />
                                             </div>
                                         </div>
-                                        {/* <div>
-                                            <div className="font-bold">Hart Hagerty</div>
-                                            <div className="text-sm opacity-50">United States</div>
-                                        </div> */}
                                     </div>
                                 </td>
                                 <td>
@@ -79,7 +73,7 @@ const MyOrders = () => {
                                     <span className="badge badge-ghost ">{booking.email}</span>
                                 </td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <button className="btn btn-ghost btn-xs">{booking.Location}</button>
                                 </th>
                             </tr>)
                         

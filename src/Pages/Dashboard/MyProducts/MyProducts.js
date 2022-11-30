@@ -112,7 +112,7 @@ const MyProducts = () => {
                                     }
                                     {
                                         product.price && !product.paid &&
-                                        <button><span className='text-primary '>unsold</span></button>
+                                        <Link to='/add'><button><span className='text-primary '>Add</span></button></Link>
                                     }
 
                                 </th>
