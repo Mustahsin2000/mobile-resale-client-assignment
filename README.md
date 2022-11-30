@@ -7,7 +7,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. adminPassword: 123456Aa%
 
 
-In the project directory, you can run:
+### In the project I Used:
+#react,react-router-dom
+#Firebase
+#Node js
+#Mongodb
+#Stripe
 
 ### `npm start`
 
