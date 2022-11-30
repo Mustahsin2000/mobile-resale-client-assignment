@@ -1,6 +1,6 @@
 # Getting Started with ResaleMobile Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [Live Website Link](https://mobile-resale-821a5.web.app/).
 
 ## Admin Email & Password
 1. adminEmail: rafi@gmail.com

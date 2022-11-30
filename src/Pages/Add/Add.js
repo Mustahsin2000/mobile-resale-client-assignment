@@ -4,7 +4,7 @@ import Addver from './Addver';
 const Add = () => {
     const [adds,setAdd] = useState([]);
     useEffect(()=>{
-       fetch('http://localhost:5000/addproducts')
+       fetch('https://mobile-resale-server.vercel.app/addproducts')
        .then(res=>res.json())
        .then(data=>setAdd(data))
     },[])

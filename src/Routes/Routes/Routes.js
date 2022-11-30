@@ -41,7 +41,7 @@ const router = createBrowserRouter([
            {
             path:'/products',
             element:<Products></Products>,
-            loader:()=>fetch('http://localhost:5000/products') 
+            loader:()=>fetch('https://mobile-resale-server.vercel.app/products') 
            },
 
             {
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         {
             path:'/dashboard/payment/:id',
             element:<Payment></Payment> ,//sellerroute er moddhe rakhte hobe
-             loader:({params})=>fetch(`http://localhost:5000/addproducts/${params.id}`)
+             loader:({params})=>fetch(`https://mobile-resale-server.vercel.app/addproducts/${params.id}`)
         }
       ]
     }

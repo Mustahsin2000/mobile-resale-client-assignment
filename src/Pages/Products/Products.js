@@ -7,7 +7,7 @@ const Products = () => {
   
 //    const[samsung,setSamsung]=useState([]);
 //    useEffect(()=>{
-//     fetch('http://localhost:5000/products')
+//     fetch('https://mobile-resale-server.vercel.app/products')
 //     .then(res=>res.json())
 //     .then(data=>setSamsung(data))
 //     .then(data=>console.log(data))
